@@ -7,13 +7,17 @@ public class GameManager : MonoBehaviour
     public GameObject collectiblePrefab;
     public Vector3 spawnAreaMin;
     public Vector3 spawnAreaMax;
+    public int initialCollectibles = 5;
 
     void Start()
     {
-        InstantiateRandomCollectible();
+        for (int i = 0; i < initialCollectibles; i++)
+        {
+            InstantiateRandomCollectible();
+        }
     }
 
-    void InstantiateRandomCollectible()
+    public void InstantiateRandomCollectible()
     {
         Vector3 randomPosition = new Vector3(
             Random.Range(spawnAreaMin.x, spawnAreaMax.x),
